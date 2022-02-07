@@ -2,7 +2,7 @@
 
 prompt_confirm() {
     while true; do
-        read -r -n 1 -p "${1:-Continue?} [y/n]: " REPLY
+        read -r -n 1 -p "${1:-Continue?}: " REPLY
         case $REPLY in
         [yY]) echo ; 
         sudo cat /etc/default/grub | sed -e 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video=hyperv_fb:1920x1080"/g' > /etc/default/grub.tmp;
